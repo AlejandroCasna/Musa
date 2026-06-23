@@ -67,7 +67,7 @@
   .btn-outline:hover { background:var(--ocean); color:#fff; }
 
   /* SECTIONS */
-  section { padding:90px 24px; scroll-margin-top:70px; }
+  section { padding:90px 24px; }
   .section-label { font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--foam); margin-bottom:8px; display:block; }
   .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:300; color:var(--ink); line-height:1.1; margin-bottom:48px; }
   .section-title em { font-style:italic; color:var(--ocean); }
@@ -178,30 +178,15 @@
   .fav-modal-cta { margin-top:36px; text-align:center; border-top:1px solid rgba(122,98,72,0.15); padding-top:28px; }
   .fav-modal-cta p { font-size:0.83rem; color:var(--bark); margin-bottom:14px; }
 
-  /* HAMBURGER & MOBILE MENU */
-  .nav-hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px; }
-  .nav-hamburger span { display:block; width:22px; height:2px; background:var(--bark); border-radius:2px; transition:all 0.25s; }
-  .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
-  .nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
-  .nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-  .mobile-menu { display:none; position:fixed; top:56px; left:0; right:0; background:rgba(247,244,239,0.98); backdrop-filter:blur(12px); border-bottom:1px solid rgba(122,98,72,0.15); z-index:99; }
-  .mobile-menu.open { display:block; }
-  .mobile-menu a, .mobile-menu-fav { display:block; padding:15px 20px; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--bark); text-decoration:none; border-bottom:1px solid rgba(122,98,72,0.07); width:100%; text-align:left; background:none; border-left:none; border-right:none; border-top:none; cursor:pointer; font-family:'DM Sans',sans-serif; transition:color 0.15s,background 0.15s; }
-  .mobile-menu a:hover, .mobile-menu-fav:hover { color:var(--ocean); background:rgba(46,94,110,0.05); }
-  .mobile-menu-fav { color:var(--rust); border-bottom:none; }
-
   /* RESPONSIVE */
-  @media(max-width:768px){ .nav-links{display:none} .nav-hamburger{display:flex} }
+  @media(max-width:860px){ nav{padding:14px 20px;gap:12px} .nav-links{gap:12px} }
   @media(max-width:640px){
-    nav{padding:12px 16px} section{padding:56px 16px;scroll-margin-top:56px} .hero{padding:110px 20px 72px}
+    nav{padding:12px 16px} section{padding:56px 16px} .hero{padding:96px 16px 72px}
     .cards-grid{grid-template-columns:1fr 1fr;gap:12px} .cards-grid-3{grid-template-columns:1fr 1fr;gap:12px}
     .card{padding:18px 14px 14px} .card-name{font-size:1.15rem} .card-price{font-size:1.35rem}
-    .fav-modal{padding:28px 16px} .fav-grid{grid-template-columns:1fr 1fr;gap:12px}
-    .info-grid{grid-template-columns:1fr} .hero h1{font-size:clamp(2.4rem,11vw,3.8rem)} .hero-sub{font-size:0.9rem;max-width:100%}
-    .btn-primary,.btn-outline{padding:14px 24px;font-size:0.78rem;min-height:48px}
-    .cta-section{padding:72px 20px} .fav-overlay{padding:20px 12px 40px}
-    .fav-btn{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
-    .section-title{margin-bottom:32px} .fav-modal-close{top:16px;right:16px}
+    .fav-modal{padding:32px 16px} .fav-grid{grid-template-columns:1fr 1fr;gap:12px}
+    .info-grid{grid-template-columns:1fr} .hero h1{font-size:clamp(2.6rem,11vw,4rem)} .hero-sub{font-size:0.9rem}
+    .btn-primary,.btn-outline{padding:12px 22px;font-size:0.76rem}
   }
   @media(max-width:400px){ .cards-grid{grid-template-columns:1fr} .cards-grid-3{grid-template-columns:1fr} .fav-grid{grid-template-columns:1fr} }
 </style>
@@ -251,20 +236,7 @@
       &#x1F496; Favoritos <span class="nav-fav-count" id="favCount">0</span>
     </button>
   </div>
-  <button class="nav-hamburger" id="btnHamburger" aria-label="Men&#xFA;">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#casitas">&#x1F3E0; Casitas</a>
-  <a href="#barcos">&#x26F5; Barcos</a>
-  <a href="#capitanes">&#x1F468;&#x200D;&#x2708;&#xFE0F; Capitanes</a>
-  <a href="#pueblitos">&#x1F3D8;&#xFE0F; Pueblitos</a>
-  <a href="#peces">&#x1F41F; Peces</a>
-  <a href="#estrellas">&#x2B50; Nuestras Estrellas</a>
-  <a href="#contacto">Contactar</a>
-  <button class="mobile-menu-fav" id="btnMobileFav">&#x1F496; Favoritos <span id="favCountMobile"></span></button>
-</div>
 
 <!-- HERO -->
 <section class="hero" id="hero-top">
@@ -536,7 +508,7 @@
   <h2>&#x00BF;Te enamoraste<br>de <em>alguna pieza?</em></h2>
   <p>Escribinos y te asesoramos.<br>Cada pedido es &#250;nico, igual que vos.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-    <a href="https://wa.me/+5491163564237?text=Hola%20Musas%2C%20quiero%20consultar%20sobre%20sus%20productos%20%F0%9F%8C%8A" class="btn-primary" target="_blank">&#x1F4AC; Consultar</a>
+    <a href="https://wa.me/5491145693781?text=Hola%20Musas%2C%20quiero%20consultar%20sobre%20sus%20productos%20%F0%9F%8C%8A" class="btn-primary" target="_blank">&#x1F4AC; Consultar</a>
     <a href="https://instagram.com/musasdecosustentable" class="btn-outline" target="_blank" style="color:var(--foam);border-color:var(--foam);">&#x1F4F8; Im&#225;genes</a>
   </div>
 </section>
@@ -584,16 +556,14 @@
     var el = document.getElementById('favCount');
     el.textContent = count;
     el.classList.toggle('visible', count > 0);
-    var elM = document.getElementById('favCountMobile');
-    if (elM) elM.textContent = count > 0 ? '(' + count + ')' : '';
   }
 
   function buildWppFavLink() {
     var items = Object.values(favs);
-    if (items.length === 0) return 'https://wa.me/+5491163564237?text=Hola%20Musas%2C%20quiero%20consultar%20sobre%20sus%20productos%20%F0%9F%8C%8A';
+    if (items.length === 0) return 'https://wa.me/5491145693781?text=Hola%20Musas%2C%20quiero%20consultar%20sobre%20sus%20productos%20%F0%9F%8C%8A';
     var lista = items.map(function(i){ return '\u2022 ' + i.name + ' \u2014 ' + i.price; }).join('\n');
     var msg = 'Hola Musas \uD83D\uDC96 Me gustar\u00EDa consultar por estas piezas que guard\u00E9 como favoritas:\n\n' + lista + '\n\n\u00BFPueden darme m\u00E1s informaci\u00F3n?';
-    return 'https://wa.me/+5491163564237?text=' + encodeURIComponent(msg);
+    return 'https://wa.me/5491145693781?text=' + encodeURIComponent(msg);
   }
 
   function renderFavModal() {
@@ -645,27 +615,7 @@
   document.getElementById('btnNavFav').addEventListener('click', openFav);
   document.getElementById('btnCloseFav').addEventListener('click', closeFav);
   document.getElementById('favOverlay').addEventListener('click', function(e){ if(e.target===this) closeFav(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeFav(); closeMobileMenu(); } });
-
-  // Mobile hamburger menu
-  var hamburger = document.getElementById('btnHamburger');
-  var mobileMenu = document.getElementById('mobileMenu');
-  function closeMobileMenu() {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  }
-  hamburger.addEventListener('click', function(e) {
-    e.stopPropagation();
-    if (mobileMenu.classList.contains('open')) { closeMobileMenu(); }
-    else { hamburger.classList.add('open'); mobileMenu.classList.add('open'); }
-  });
-  mobileMenu.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() { closeMobileMenu(); });
-  });
-  document.getElementById('btnMobileFav').addEventListener('click', function() { closeMobileMenu(); openFav(); });
-  document.addEventListener('click', function(e) {
-    if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && e.target !== hamburger) closeMobileMenu();
-  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeFav(); });
 </script>
 </body>
 </html>
